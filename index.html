@@ -1582,17 +1582,15 @@ function viewProcess(){
         <h2>One Organized Path</h2>
         <p>Emergency response and mitigation stabilize the property. Pack-out protects belongings when needed. Reconstruction rebuilds the damaged rooms. Our role is to coordinate the path and manage the rebuild clearly from start to finish.</p>
       </div>
-      <div class="process-detail" style="max-width:760px;margin:0 auto;">
+      <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-top:40px;">
         ${steps.map((s,i)=>`
-        <div class="pd-row">
-          <div class="pd-num" style="display:flex;flex-direction:column;align-items:center;gap:6px;border:none;">
-            <span style="font-size:16px;">${svgIcon(s.icon)}</span>
-            <span style="font-size:22px;">${String(i+1).padStart(2,'0')}</span>
+        <div style="background:var(--deep);border:1px solid var(--line);border-radius:var(--radius);padding:28px 20px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px;transition:background .2s;flex:1 1 200px;max-width:260px;">
+          <div style="width:52px;height:52px;border-radius:50%;border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;background:var(--ink);flex-shrink:0;">
+            <span style="font-size:20px;color:var(--gold);font-family:var(--font-display);font-weight:600;">${i+1}</span>
           </div>
-          <div>
-            <h4>${s.title}</h4>
-            <p>${s.text}</p>
-          </div>
+          <div style="width:40px;height:40px;border-radius:50%;background:rgba(30,143,255,0.1);display:flex;align-items:center;justify-content:center;">${svgIcon(s.icon)}</div>
+          <h4 style="font-size:14px;color:var(--metal);letter-spacing:0.02em;margin:0;">${s.title}</h4>
+          <p style="font-size:12.5px;margin:0;">${s.text}</p>
         </div>`).join('')}
       </div>
     </div>
