@@ -501,7 +501,7 @@ h3.block-title{font-size:24px;color:var(--metal);margin-bottom:4px;}
 .area-map{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:var(--deep);}
 
 /* FAQ accordion */
-.faq-list{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:1px;}
+.faq-list{display:flex;flex-direction:column;gap:1px;}
 .faq-item{border-bottom:1px solid var(--line);}
 .faq-q{
   display:flex;justify-content:space-between;align-items:center;
@@ -512,7 +512,8 @@ h3.block-title{font-size:24px;color:var(--metal);margin-bottom:4px;}
 .faq-q svg{width:18px;height:18px;flex-shrink:0;color:var(--gold);transition:transform .25s;margin-left:16px;}
 .faq-item.open .faq-q svg{transform:rotate(45deg);}
 .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;}
-.faq-a p{padding:0 4px 22px;font-size:14.5px;}
+.faq-item.open .faq-a{background:rgba(255,255,255,0.02);border-radius:0 0 8px 8px;}
+.faq-a p{padding:0 18px 24px;font-size:15px;line-height:1.7;color:var(--metal-dim);}
 
 /* gallery */
 .gallery-filters{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:44px;}
@@ -770,6 +771,7 @@ footer.site-footer{background:var(--ink2);border-top:1px solid var(--line);paddi
   .icon-row{grid-template-columns:repeat(2,1fr);}
   .gallery-grid{grid-template-columns:1fr;}
   .footer-grid{grid-template-columns:1fr;gap:30px;}
+  .wrap[style*="grid-template-columns:1fr 280px"]{grid-template-columns:1fr!important;}
   .about-stats{grid-template-columns:repeat(2,1fr);}
   section{padding:56px 0;}
   .pd-row{grid-template-columns:50px 1fr;}
@@ -1830,11 +1832,11 @@ function viewFAQ(){
     eyebrowTxt:'Frequently Asked Questions',
     title:'Answers Before You Call',
     sub:'Common questions homeowners ask about restoration, insurance, and the reconstruction process.',
-    photo: PHOTO.restoredInterior, alt:'Restored living room interior'
+    photo: PHOTO.teamConsultation, alt:'Restoration team consulting with a homeowner'
   })}
 
   <section>
-    <div class="wrap">
+    <div class="wrap" style="display:grid;grid-template-columns:1fr 280px;gap:40px;align-items:start;">
       <div class="faq-list">
         ${FAQS.map((f,i)=>`
         <div class="faq-item" data-faq="${i}">
@@ -1842,10 +1844,20 @@ function viewFAQ(){
           <div class="faq-a"><p>${f.a}</p></div>
         </div>`).join('')}
       </div>
+      <div class="side-card" style="position:sticky;top:100px;">
+        <h4 style="color:var(--gold);margin-bottom:14px;">STILL NEED HELP?</h4>
+        <p style="font-size:13px;color:var(--metal-dim);margin-bottom:18px;line-height:1.6;">Didn't find your answer? We're here to help. Call, chat, or send us a request.</p>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="tel:7046748783" class="btn btn-fire btn-sm" style="justify-content:center;">Call 704-674-8783</a>
+          <a href="https://wa.me/17046748783?text=Hi%2C%20I%20have%20a%20question%20about%20restoration%20services." target="_blank" rel="noopener" class="btn btn-outline btn-sm" style="border-color:#25d366;color:#25d366;justify-content:center;">Chat on WhatsApp</a>
+          <a href="#" data-nav="contact" class="btn btn-outline btn-sm" style="justify-content:center;">Request Help Online</a>
+        </div>
+        <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--line);">
+          <p style="font-size:12px;color:var(--metal-dim);">Available <strong>24/7</strong> for emergency response coordination</p>
+        </div>
+      </div>
     </div>
   </section>
-
-  ${ctaBand({title:'Still Have Questions?', sub:'We are here to help. Call us or request help online.'})}
   `;
 }
 
