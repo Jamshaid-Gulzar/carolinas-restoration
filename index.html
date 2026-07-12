@@ -1572,15 +1572,18 @@ function viewProcess(){
     eyebrowTxt:'Our Process',
     title:'One Clear Path From Damage to Done',
     sub:'A structured, seven-step process designed to keep you informed from the first call to the final walkthrough.',
-    photo: PHOTO.teamConsultation, alt:'Project manager walking a homeowner through the restoration plan'
+    photo: 'https://i.postimg.cc/VkpH3G9j/Gemini-Generated-Image-i3tf1yi3tf1yi3tf.png', alt:'Restoration project manager walking a homeowner through the restoration plan'
   })}
 
   <section>
     <div class="wrap">
-      <div class="section-head">
-        ${eyebrow('From Emergency to Rebuild')}
-        <h2>One Organized Path</h2>
-        <p>Emergency response and mitigation stabilize the property. Pack-out protects belongings when needed. Reconstruction rebuilds the damaged rooms. Our role is to coordinate the path and manage the rebuild clearly from start to finish.</p>
+      <div class="split" style="margin-bottom:40px;">
+        <div>
+          ${eyebrow('From Emergency to Rebuild')}
+          <h2 style="font-size:clamp(22px,2.8vw,32px);color:var(--metal);margin-bottom:14px;">One Organized Path</h2>
+          <p>Emergency response and mitigation stabilize the property. Pack-out protects belongings when needed. Reconstruction rebuilds the damaged rooms. Our role is to coordinate the path and manage the rebuild clearly from start to finish.</p>
+        </div>
+        <div class="split-img photo"><img src="https://i.postimg.cc/50Lc7cZY/Gemini-Generated-Image-bu7bxqbu7bxqbu7b.png" alt="Restoration process overview" loading="lazy"></div>
       </div>
       <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-top:40px;">
         ${steps.map((s,i)=>`
