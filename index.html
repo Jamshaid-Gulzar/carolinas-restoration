@@ -1918,17 +1918,19 @@ function viewContact(){
     <div class="wrap">
       <div class="contact-grid">
         <div class="form-card">
-          <form id="leadForm" action="https://formsubmit.co/ajax/jamshaidgulzar9@gmail.com" method="POST">
+          <p style="font-size:15px;color:var(--metal);margin-bottom:20px;line-height:1.6;"><strong>Upload photos and tell us what happened.</strong> We'll review the next step and contact you quickly.</p>
+          <form id="leadForm" action="https://formsubmit.co/jamshaidgulzar9@gmail.com" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_cc" value="request@restorecarolinas.com">
             <input type="hidden" name="_template" value="table">
             <input type="hidden" name="_subject" value="New Restoration Lead from Website">
+            <input type="hidden" name="_next" value="https://carolinas-restoration.vercel.app/?submitted=thankyou">
             <div class="form-row">
               <div class="form-group"><label>First Name <span class="req">*</span></label><input type="text" name="first_name" required placeholder="First name"></div>
               <div class="form-group"><label>Last Name <span class="req">*</span></label><input type="text" name="last_name" required placeholder="Last name"></div>
             </div>
             <div class="form-row">
-              <div class="form-group"><label>Phone Number <span class="req">*</span></label><input type="tel" name="phone" required placeholder="(704) 555-1234"></div>
+              <div class="form-group"><label>Phone Number <span class="req">*</span></label><input type="tel" name="phone" required placeholder="(704) 000-0000"></div>
               <div class="form-group"><label>Email Address <span class="req">*</span></label><input type="email" name="email" required placeholder="you@example.com"></div>
             </div>
             <div class="form-row">
@@ -1959,9 +1961,9 @@ function viewContact(){
               <div class="form-group full">
                 <label>Upload Photos</label>
                 <div class="upload-box" onclick="document.getElementById('photoUpload').click()">
-                  ${svgIcon('upload')}<span>Drag and drop files here or click to browse</span><span style="font-size:11px;">JPG or PNG, up to 8 photos</span>
+                  ${svgIcon('upload')}<span id="uploadLabel">Drag and drop files here or click to browse</span><span style="font-size:11px;">JPG or PNG, up to 8 photos</span>
                 </div>
-                <input type="file" id="photoUpload" name="photos" accept="image/*" multiple style="display:none;">
+                <input type="file" id="photoUpload" name="photos" accept="image/*" multiple style="display:none;" onchange="document.getElementById('uploadLabel').textContent = this.files.length + ' file(s) selected'">
               </div>
             </div>
             <div class="form-row">
@@ -2165,34 +2167,21 @@ function bindInPageInteractions(){
     });
   }
 
-  // Contact form submit — sends to FormSubmit.co which forwards to both emails
+  // Contact form submit — native POST to FormSubmit.co for file upload support
   const form = document.getElementById('leadForm');
   if(form){
-    form.addEventListener('submit', async (e)=>{
-      e.preventDefault();
+    form.addEventListener('submit', function(){
       const btn = form.querySelector('.submit-btn');
-      const origText = btn.textContent;
-      btn.textContent = 'Sending...';
-      btn.disabled = true;
-      try {
-        const formData = new FormData(form);
-        const res = await fetch(form.action, {
-          method: 'POST',
-          headers: { 'Accept': 'application/json' },
-          body: formData
-        });
-        const data = await res.json();
-        if(data.success){
-          form.innerHTML = `<div style="text-align:center;padding:60px 0;"><h2>Thank You!</h2><p>Your request has been submitted. Someone will reach out to you shortly.</p></div>`;
-        } else {
-          alert(data.message || 'Submission failed. Please call 704-674-8783.');
-        }
-      } catch(e){
-        alert('Could not reach server. Please call 704-674-8783 to submit your request.');
-      }
-      btn.textContent = origText;
-      btn.disabled = false;
+      btn.textContent = 'Submitting...';
     });
+  }
+  // Show thank-you if redirected back after submission
+  if(location.search.includes('submitted=thankyou')){
+    history.replaceState(null,'',location.pathname);
+    const formCard = document.querySelector('.form-card');
+    if(formCard){
+      formCard.innerHTML = `<div style="text-align:center;padding:60px 0;"><h2>Thank You!</h2><p>Your request has been submitted successfully. Someone will reach out to you shortly.</p><p style="margin-top:14px;">Need immediate help? <a href="tel:7046748783" style="color:var(--water-glow);font-weight:700;">Call 704-674-8783</a></p></div>`;
+    }
   }
 }
 
