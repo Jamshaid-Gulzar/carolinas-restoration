@@ -385,6 +385,7 @@ h3.block-title{font-size:24px;color:var(--metal);margin-bottom:4px;}
 .pd-row{display:grid;grid-template-columns:80px 1fr;gap:28px;padding:32px 0;border-bottom:1px solid var(--line);}
 .pd-row:last-child{border-bottom:none;}
 .pd-num{font-family:var(--font-display);font-size:42px;color:transparent;-webkit-text-stroke:1.5px var(--gold);font-weight:600;line-height:1;}
+.pd-num svg{width:24px;height:24px;color:var(--gold);}
 .pd-row h4{font-size:19px;color:var(--metal);margin-bottom:8px;}
 .pd-row p{font-size:14.5px;max-width:600px;}
 
@@ -1558,13 +1559,13 @@ function viewInsurance(){
 // ========================================================================
 function viewProcess(){
   const steps = [
-    {title:'Contact Us', text:'Call or submit a request and reach our team day or night for emergency response coordination.'},
-    {title:'Emergency Assessment', text:'We evaluate the damage on-site and outline the immediate priorities to stop further loss.'},
-    {title:'Mitigation &amp; Protection', text:'Qualified mitigation partners stabilize the property and protect it from secondary damage.'},
-    {title:'Contents Pack-Out if Needed', text:'If belongings need to be removed, we coordinate inventory, packing, transport, and secure storage.'},
-    {title:'Reconstruction Planning', text:'We build a detailed scope, timeline, and material plan for the rebuild.'},
-    {title:'Repair &amp; Rebuild', text:'Skilled trades carry out the plan with quality materials and ongoing oversight.'},
-    {title:'Final Walkthrough', text:'We review every detail with you to make sure your home is move-in ready.'},
+    {icon:'phone', title:'Contact Us', text:'Call or submit a request and reach our team day or night for emergency response coordination.'},
+    {icon:'camera', title:'Emergency Assessment', text:'We evaluate the damage on-site and outline the immediate priorities to stop further loss.'},
+    {icon:'shield', title:'Mitigation &amp; Protection', text:'Qualified mitigation partners stabilize the property and protect it from secondary damage.'},
+    {icon:'box', title:'Contents Pack-Out if Needed', text:'If belongings need to be removed, we coordinate inventory, packing, transport, and secure storage.'},
+    {icon:'ruler', title:'Reconstruction Planning', text:'We build a detailed scope, timeline, and material plan for the rebuild.'},
+    {icon:'hammer', title:'Repair &amp; Rebuild', text:'Skilled trades carry out the plan with quality materials and ongoing oversight.'},
+    {icon:'check', title:'Final Walkthrough', text:'We review every detail with you to make sure your home is move-in ready.'},
   ];
   return `
   ${pageHero({
@@ -1576,15 +1577,41 @@ function viewProcess(){
 
   <section>
     <div class="wrap">
+      <div class="section-head">
+        ${eyebrow('From Emergency to Rebuild')}
+        <h2>One Organized Path</h2>
+        <p>Emergency response and mitigation stabilize the property. Pack-out protects belongings when needed. Reconstruction rebuilds the damaged rooms. Our role is to coordinate the path and manage the rebuild clearly from start to finish.</p>
+      </div>
       <div class="process-detail" style="max-width:760px;margin:0 auto;">
         ${steps.map((s,i)=>`
         <div class="pd-row">
-          <div class="pd-num">${String(i+1).padStart(2,'0')}</div>
+          <div class="pd-num" style="display:flex;flex-direction:column;align-items:center;gap:6px;border:none;">
+            <span style="font-size:16px;">${svgIcon(s.icon)}</span>
+            <span style="font-size:22px;">${String(i+1).padStart(2,'0')}</span>
+          </div>
           <div>
             <h4>${s.title}</h4>
             <p>${s.text}</p>
           </div>
         </div>`).join('')}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-deep tight" style="border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="split">
+        <div class="split-img photo"><img src="${PHOTO.teamConsultation}" alt="Restoration crew on a job site in Charlotte" loading="lazy"></div>
+        <div>
+          <h2 style="font-size:clamp(20px,2.4vw,28px);color:var(--metal);margin-bottom:10px;">One Team, Every Stage.</h2>
+          <p>From the moment we arrive, we bring order to the situation. We coordinate mitigation partners, protect your belongings with documented pack-out services, manage every trade through reconstruction, and walk you through the completed result. You get one point of contact and a clear plan at every stage.</p>
+          <ul class="feature-list">
+            <li>${svgIcon('check')} Emergency response coordination 24/7</li>
+            <li>${svgIcon('check')} Contents pack-out and storage when you need it</li>
+            <li>${svgIcon('check')} Full reconstruction management — drywall to final finish</li>
+            <li>${svgIcon('check')} One project manager, not a list of phone numbers</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
