@@ -1253,14 +1253,14 @@ function viewWater(){
     eyebrowTxt:'Water Damage Restoration',
     title:'Water Damage Restoration in Charlotte and the Carolinas',
     sub:'From extraction and dry-out coordination to complete reconstruction, we help restore your home after water damage.',
-    photo: PHOTO.waterDamage, alt:'Flooded living room with standing water before restoration'
+    photo: 'https://i.postimg.cc/SsFQNG4T/Gemini-Generated-Image-rprf7yrprf7yrprf7yr.png', alt:'Flooded room with standing water requiring restoration'
   })}
 
   <section>
     <div class="wrap">
       <div class="section-head">
         ${eyebrow('What We Help Coordinate')}
-        <h2>Full-Service Water Damage Recovery</h2>
+        <h2>Coordinated Water Damage Recovery</h2>
       </div>
       ${svcGrid([
         {icon:'fanblower', title:'Emergency Extraction', text:'Rapid water removal to limit spread and secondary damage.'},
@@ -1294,15 +1294,58 @@ function viewWater(){
 
   <section>
     <div class="wrap">
+      <div class="section-head">
+        ${eyebrow('What Happens Next')}
+        <h2>From Water to Dry — Step by Step</h2>
+        <p>Every water damage situation follows a clear path. We help coordinate each phase so nothing is missed and your home is rebuilt the right way.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:800px;margin:0 auto;">
+        <div style="background:var(--deep);border:1px solid var(--line);border-radius:var(--radius);padding:22px;text-align:center;">
+          <div style="width:46px;height:46px;border-radius:50%;background:rgba(30,143,255,0.12);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;color:var(--water-glow);">${svgIcon('drop')}</div>
+          <h4 style="font-size:14px;color:var(--metal);margin-bottom:6px;">Stop the Water</h4>
+          <p style="font-size:12.5px;">Extraction coordination and source control.</p>
+        </div>
+        <div style="background:var(--deep);border:1px solid var(--line);border-radius:var(--radius);padding:22px;text-align:center;">
+          <div style="width:46px;height:46px;border-radius:50%;background:rgba(30,143,255,0.12);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;color:var(--water-glow);">${svgIcon('wind')}</div>
+          <h4 style="font-size:14px;color:var(--metal);margin-bottom:6px;">Dry-Out &amp; Document</h4>
+          <p style="font-size:12.5px;">Industrial drying and moisture documentation.</p>
+        </div>
+        <div style="background:var(--deep);border:1px solid var(--line);border-radius:var(--radius);padding:22px;text-align:center;">
+          <div style="width:46px;height:46px;border-radius:50%;background:rgba(30,143,255,0.12);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;color:var(--water-glow);">${svgIcon('hammer')}</div>
+          <h4 style="font-size:14px;color:var(--metal);margin-bottom:6px;">Remove Damage</h4>
+          <p style="font-size:12.5px;">Remove unsalvageable materials for rebuild.</p>
+        </div>
+        <div style="background:var(--deep);border:1px solid var(--line);border-radius:var(--radius);padding:22px;text-align:center;">
+          <div style="width:46px;height:46px;border-radius:50%;background:rgba(30,143,255,0.12);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;color:var(--water-glow);">${svgIcon('layers')}</div>
+          <h4 style="font-size:14px;color:var(--metal);margin-bottom:6px;">Rebuild Finishes</h4>
+          <p style="font-size:12.5px;">Drywall, flooring, trim, and cabinets.</p>
+        </div>
+        <div style="background:var(--deep);border:1px solid var(--line);border-radius:var(--radius);padding:22px;text-align:center;">
+          <div style="width:46px;height:46px;border-radius:50%;background:rgba(30,143,255,0.12);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;color:var(--water-glow);">${svgIcon('paint')}</div>
+          <h4 style="font-size:14px;color:var(--metal);margin-bottom:6px;">Final Clean &amp; Paint</h4>
+          <p style="font-size:12.5px;">Cleanup, paint, and final walkthrough.</p>
+        </div>
+        <div style="background:var(--deep);border:1px solid var(--line);border-radius:var(--radius);padding:22px;text-align:center;">
+          <div style="width:46px;height:46px;border-radius:50%;background:rgba(30,143,255,0.12);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;color:var(--water-glow);">${svgIcon('check')}</div>
+          <h4 style="font-size:14px;color:var(--metal);margin-bottom:6px;">Walkthrough Complete</h4>
+          <p style="font-size:12.5px;">Every detail reviewed before sign-off.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-deep">
+    <div class="wrap">
       <div class="split rev">
-        <div class="split-img photo"><img src="${PHOTO.restoredInterior}" alt="Restored kitchen and living space after water damage repair" loading="lazy"></div>
+        <div class="split-img photo"><img src="https://i.postimg.cc/cHRxK84H/Gemini-Generated-Image-2uereu2uereu2uer.png" alt="Restoration crew setting up drying equipment after water damage" loading="lazy"></div>
         <div>
-          ${eyebrow('From Damage to Done')}
-          <h3 class="block-title">A Clear Plan for Every Wet-Damage Room</h3>
-          <p style="margin-top:14px;">Whether it's one bathroom or an entire main floor, we help coordinate every step &mdash; from the first extraction call to the final coat of paint.</p>
+          ${eyebrow('Real Crews, Real Equipment')}
+          <h3 class="block-title">Professional Dry-Out Setup in Progress</h3>
+          <p style="margin-top:14px;">When water damage hits, the first step is getting the right drying equipment in place. Our mitigation partners deploy air movers, dehumidifiers, and moisture monitoring to stop secondary damage and prepare the property for reconstruction.</p>
           <ul class="feature-list">
-            <li>${svgIcon('check')} Documentation built for insurance review</li>
-            <li>${svgIcon('check')} Trade scheduling handled for you</li>
+            <li>${svgIcon('check')} Industrial air movers and dehumidifiers</li>
+            <li>${svgIcon('check')} Moisture documentation for insurance</li>
+            <li>${svgIcon('check')} Demolition of unsalvageable materials</li>
             <li>${svgIcon('check')} One project manager from start to finish</li>
           </ul>
         </div>
