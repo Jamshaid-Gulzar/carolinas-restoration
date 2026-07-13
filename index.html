@@ -1772,40 +1772,63 @@ function viewAreas(){
             </button>`).join('')}
           </div>
         </div>
-        <div class="area-map" id="areaMap" style="aspect-ratio:1/1;position:relative;overflow:hidden;border-radius:var(--radius);border:1px solid var(--line);background:#0d1b2e;">
-          <svg viewBox="0 0 500 500" width="100%" height="100%" style="display:block;">
+        <div class="area-map" id="areaMap" style="aspect-ratio:1/1;position:relative;overflow:hidden;border-radius:var(--radius);border:1px solid var(--line);background:#0f1a2e;">
+          <svg viewBox="0 0 500 500" width="100%" height="100%" style="display:block;font-family:system-ui,-apple-system,sans-serif;">
             <defs>
               <filter id="pinShadow"><feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="rgba(0,0,0,0.5)"/></filter>
-              <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.025)" stroke-width="0.5"/>
+              <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+                <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(255,255,255,0.018)" stroke-width="0.5"/>
               </pattern>
             </defs>
             <rect width="500" height="500" fill="url(#grid)"/>
-            <!-- subtle terrain shading -->
-            <ellipse cx="250" cy="250" rx="240" ry="240" fill="rgba(30,143,255,0.03)"/>
-            <ellipse cx="200" cy="180" rx="180" ry="160" fill="rgba(255,255,255,0.01)"/>
-            <ellipse cx="350" cy="320" rx="140" ry="120" fill="rgba(255,255,255,0.01)"/>
-            <!-- lake / water body -->
-            <path d="M120 85 Q140 70 160 80 Q180 75 190 90 Q170 105 145 100 Q130 110 120 85Z" fill="rgba(30,143,255,0.06)"/>
-            <path d="M380 420 Q400 405 420 415 Q440 410 445 430 Q420 440 395 432 Q380 440 380 420Z" fill="rgba(30,143,255,0.06)"/>
-            <!-- major roads -->
-            <path d="M10 250 Q130 260 250 250 Q370 240 490 250" stroke="rgba(255,255,255,0.04)" stroke-width="2.5" fill="none"/>
-            <path d="M250 10 L250 490" stroke="rgba(255,255,255,0.04)" stroke-width="2.5" fill="none"/>
-            <!-- highway I-85 -->
-            <path d="M60 160 Q180 175 250 200 Q320 220 440 240" stroke="rgba(231,162,61,0.08)" stroke-width="2" stroke-dasharray="8,5" fill="none"/>
-            <text x="130" y="188" fill="rgba(231,162,61,0.15)" font-family="var(--font-mono)" font-size="7" letter-spacing="2">I-85</text>
-            <!-- highway I-77 -->
-            <path d="M250 10 L250 490" stroke="rgba(231,162,61,0.08)" stroke-width="2" stroke-dasharray="8,5" fill="none"/>
-            <text x="255" y="280" fill="rgba(231,162,61,0.15)" font-family="var(--font-mono)" font-size="7" letter-spacing="2">I-77</text>
-            <!-- secondary roads -->
-            <path d="M80 100 Q160 130 190 180" stroke="rgba(255,255,255,0.02)" stroke-width="1" fill="none"/>
-            <path d="M300 100 Q340 150 360 220" stroke="rgba(255,255,255,0.02)" stroke-width="1" fill="none"/>
-            <path d="M150 350 Q250 380 380 350" stroke="rgba(255,255,255,0.02)" stroke-width="1" fill="none"/>
-            <path d="M100 300 Q150 280 200 290" stroke="rgba(255,255,255,0.02)" stroke-width="1" fill="none"/>
-            <path d="M350 50 Q380 100 420 150" stroke="rgba(255,255,255,0.02)" stroke-width="1" fill="none"/>
+            <!-- terrain / landmass -->
+            <ellipse cx="250" cy="250" rx="240" ry="240" fill="rgba(30,143,255,0.02)"/>
+            <ellipse cx="200" cy="180" rx="200" ry="150" fill="rgba(255,255,255,0.015)"/>
+            <ellipse cx="350" cy="330" rx="160" ry="140" fill="rgba(255,255,255,0.012)"/>
+            <ellipse cx="100" cy="400" rx="100" ry="80" fill="rgba(255,255,255,0.008)"/>
+            <!-- water bodies -->
+            <path d="M110 70 Q135 50 165 65 Q180 60 195 80 Q170 100 140 92 Q120 105 110 70Z" fill="rgba(30,143,255,0.06)"/>
+            <path d="M390 430 Q410 415 430 425 Q450 420 455 440 Q430 450 405 442 Q390 450 390 430Z" fill="rgba(30,143,255,0.06)"/>
+            <path d="M40 300 Q55 290 70 295 Q75 285 65 278 Q55 275 48 280 Q40 290 40 300Z" fill="rgba(30,143,255,0.05)"/>
+            <!-- park / green area -->
+            <ellipse cx="140" cy="420" rx="40" ry="25" fill="rgba(80,200,80,0.02)"/>
+            <ellipse cx="380" cy="100" rx="35" ry="20" fill="rgba(80,200,80,0.02)"/>
+            <!-- === ROAD NETWORK === -->
+            <!-- Interstates (thick orange) -->
+            <!-- I-85 SW to NE -->
+            <path d="M20 185 L80 190 L140 195 L200 205 L260 210 L320 215 L380 220 L440 225 L500 230" stroke="rgba(231,162,61,0.12)" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <path d="M20 185 L80 190 L140 195 L200 205 L260 210 L320 215 L380 220 L440 225 L500 230" stroke="#e8a23d" stroke-width="1.2" fill="none" stroke-dasharray="6,4" stroke-linecap="round"/>
+            <!-- I-77 N to S -->
+            <path d="M270 10 L270 60 L265 110 L260 160 L255 210 L250 260 L248 310 L245 360 L240 410 L235 460 L230 500" stroke="rgba(231,162,61,0.12)" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <path d="M270 10 L270 60 L265 110 L260 160 L255 210 L250 260 L248 310 L245 360 L240 410 L235 460 L230 500" stroke="#e8a23d" stroke-width="1.2" fill="none" stroke-dasharray="6,4" stroke-linecap="round"/>
+            <!-- I-485 loop (outer belt) -->
+            <path d="M180 120 Q220 105 280 110 Q330 115 360 150 Q380 190 370 240 Q355 290 320 320 Q280 345 230 340 Q180 330 155 295 Q135 255 140 210 Q145 165 180 120Z" stroke="rgba(231,162,61,0.08)" stroke-width="2" fill="none" stroke-dasharray="5,4" stroke-linecap="round"/>
+            <!-- US highways (medium white) -->
+            <!-- US-74 -->
+            <path d="M100 430 L150 410 L200 390 L260 370 L320 355 L380 340 L440 325" stroke="rgba(255,255,255,0.07)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <!-- US-29 -->
+            <path d="M290 90 L310 120 L330 155 L350 190 L360 220" stroke="rgba(255,255,255,0.06)" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <!-- NC-49 -->
+            <path d="M160 100 L175 140 L190 180 L200 210" stroke="rgba(255,255,255,0.05)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+            <!-- NC-73 -->
+            <path d="M100 140 L140 150 L180 160 L220 170" stroke="rgba(255,255,255,0.05)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+            <!-- NC-51 -->
+            <path d="M190 280 L215 290 L240 295 L265 300" stroke="rgba(255,255,255,0.05)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+            <!-- NC-16 -->
+            <path d="M120 220 L145 240 L170 260 L195 280" stroke="rgba(255,255,255,0.05)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+            <!-- local main roads (thin white) -->
+            <path d="M90 350 L120 345 L150 340 L180 335" stroke="rgba(255,255,255,0.03)" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+            <path d="M310 120 L330 140 L350 160 L370 180" stroke="rgba(255,255,255,0.03)" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+            <path d="M80 250 L110 255 L140 260 L170 265" stroke="rgba(255,255,255,0.03)" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+            <path d="M330 270 L360 280 L390 290 L420 300" stroke="rgba(255,255,255,0.03)" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+            <path d="M140 50 L175 65 L210 80 L245 95" stroke="rgba(255,255,255,0.03)" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+            <path d="M300 380 L330 390 L360 400 L390 410" stroke="rgba(255,255,255,0.03)" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+            <path d="M190 360 L220 380 L250 400 L280 420" stroke="rgba(255,255,255,0.03)" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+            <path d="M380 50 L400 70 L420 90 L440 110" stroke="rgba(255,255,255,0.03)" stroke-width="1.2" fill="none" stroke-linecap="round"/>
             <!-- county boundary lines -->
-            <path d="M180 300 Q220 320 250 350 Q280 370 320 380" stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="3,4" fill="none"/>
-            <path d="M320 250 Q340 300 370 340" stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="3,4" fill="none"/>
+            <path d="M170 290 Q210 315 240 345 Q270 370 310 385" stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="4,5" fill="none"/>
+            <path d="M310 220 Q330 270 355 310" stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="4,5" fill="none"/>
+            <path d="M130 380 Q160 395 200 410" stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="4,5" fill="none"/>
             <!-- city markers -->
             ${[
               ['Charlotte',250,250],
