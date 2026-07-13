@@ -1936,7 +1936,7 @@ function viewContact(){
             <input type="hidden" name="_cc" value="request@restorecarolinas.com">
             <input type="hidden" name="_template" value="table">
             <input type="hidden" name="_subject" value="New Restoration Lead from Website">
-            <input type="hidden" name="_next" value="https://carolinas-restoration.vercel.app/?submitted=thankyou">
+            <input type="hidden" name="_next" value="https://carolinas-restoration.vercel.app/?submitted=thankyou#contact">
             <div class="form-row">
               <div class="form-group"><label>First Name <span class="req">*</span></label><input type="text" name="first_name" required placeholder="First name"></div>
               <div class="form-group"><label>Last Name <span class="req">*</span></label><input type="text" name="last_name" required placeholder="Last name"></div>
@@ -2220,8 +2220,9 @@ window.addEventListener('resize', function(){
   }
 });
 
-// initial render
-render('home');
+// initial render — support hash-based deep links (e.g. #contact)
+const hashView = location.hash.replace('#','');
+render(hashView || 'home');
 
 </script>
 </body>
