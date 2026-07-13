@@ -1746,7 +1746,7 @@ function viewAbout(){
 // ========================================================================
 // VIEW: SERVICE AREAS
 // ========================================================================
-const AREAS = ['Charlotte','Harrisburg','Concord','Kannapolis','Huntersville','Mooresville','Matthews','Mint Hill','University City','Pineville','Indian Trail','Monroe','Mecklenburg County','Cabarrus County','Union County'];
+const AREAS = ['Charlotte','Harrisburg','Concord','Kannapolis','Huntersville','Mooresville','Matthews','Mint Hill','Pineville','Indian Trail','Monroe','Mecklenburg County','Cabarrus County','Union County'];
 
 function viewAreas(){
   return `
@@ -1761,61 +1761,96 @@ function viewAreas(){
     <div class="wrap">
       <div class="section-head" style="margin-bottom:32px;">
         ${eyebrow('Our Coverage Area')}
-        <h2>Click a City to See Where We Serve</h2>
+        <h2>Click a Location on the Map</h2>
       </div>
-      <div class="area-map-wrap">
-        <div class="area-map" id="areaMap" style="aspect-ratio:5/3.6;position:relative;overflow:hidden;border-radius:var(--radius);border:1px solid var(--line);background:linear-gradient(135deg,#0a1628,#14213b);">
-          <svg viewBox="0 0 600 430" width="100%" height="100%" style="display:block;">
+      <div class="split" style="grid-template-columns:1fr 1.2fr;gap:32px;">
+        <div>
+          <p style="font-size:14px;color:var(--metal-dim);margin-bottom:18px;line-height:1.6;">Click any city below to find it on the map. We serve all of Mecklenburg, Cabarrus, and Union counties.</p>
+          <div class="area-tabs" id="areaTabs" style="display:flex;flex-direction:column;gap:6px;">
+            ${AREAS.map(a=>`<button class="area-tab" data-city="${a}" style="display:flex;align-items:center;gap:10px;background:rgba(255,255,255,0.03);border:1px solid var(--line);border-radius:8px;padding:10px 16px;font-family:var(--font-display);font-size:13px;color:var(--metal-dim);cursor:pointer;letter-spacing:0.03em;transition:all .2s;text-align:left;">
+              <span style="width:8px;height:8px;border-radius:50%;background:var(--water-glow);opacity:0.4;flex-shrink:0;"></span>${a}
+            </button>`).join('')}
+          </div>
+        </div>
+        <div class="area-map" id="areaMap" style="aspect-ratio:1/1;position:relative;overflow:hidden;border-radius:var(--radius);border:1px solid var(--line);background:#0d1b2e;">
+          <svg viewBox="0 0 500 500" width="100%" height="100%" style="display:block;">
             <defs>
-              <radialGradient id="mapGlow" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="rgba(30,143,255,0.06)"/><stop offset="100%" stop-color="rgba(30,143,255,0)"/></radialGradient>
-              <filter id="mapDotShadow"><feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="rgba(0,0,0,0.4)"/></filter>
+              <filter id="pinShadow"><feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="rgba(0,0,0,0.5)"/></filter>
+              <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.025)" stroke-width="0.5"/>
+              </pattern>
             </defs>
-            <rect width="600" height="430" fill="none"/>
-            <circle cx="300" cy="215" r="210" fill="url(#mapGlow)"/>
-            <!-- road lines -->
-            <line x1="300" y1="10" x2="300" y2="420" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-            <line x1="50" y1="215" x2="550" y2="215" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-            <path d="M100 80 Q300 60 500 100" stroke="rgba(255,255,255,0.04)" stroke-width="1" fill="none"/>
-            <path d="M80 180 Q200 350 450 400" stroke="rgba(255,255,255,0.04)" stroke-width="1" fill="none"/>
-            <path d="M150 50 Q250 120 200 380" stroke="rgba(255,255,255,0.03)" stroke-width="1" fill="none"/>
-            <path d="M400 50 Q350 150 480 250" stroke="rgba(255,255,255,0.03)" stroke-width="1" fill="none"/>
-            <!-- I-85 corridor -->
-            <path d="M80 130 Q200 145 300 175 Q400 200 520 240" stroke="rgba(231,162,61,0.06)" stroke-width="1.5" stroke-dasharray="6,4" fill="none"/>
-            <!-- I-77 corridor -->
-            <path d="M300 10 L300 420" stroke="rgba(231,162,61,0.06)" stroke-width="1.5" stroke-dasharray="6,4" fill="none"/>
-            <!-- coverage zone -->
-            <path d="M180 70 Q250 55 320 60 Q400 65 430 95 Q470 120 475 170 Q490 220 480 270 Q470 320 440 350 Q410 380 360 390 Q310 400 260 395 Q210 385 180 355 Q140 320 120 270 Q105 220 110 170 Q115 120 145 85 Z" fill="rgba(30,143,255,0.05)" stroke="rgba(30,143,255,0.15)" stroke-width="1.5"/>
-            <!-- city markers with JS interaction -->
+            <rect width="500" height="500" fill="url(#grid)"/>
+            <!-- subtle terrain shading -->
+            <ellipse cx="250" cy="250" rx="240" ry="240" fill="rgba(30,143,255,0.03)"/>
+            <ellipse cx="200" cy="180" rx="180" ry="160" fill="rgba(255,255,255,0.01)"/>
+            <ellipse cx="350" cy="320" rx="140" ry="120" fill="rgba(255,255,255,0.01)"/>
+            <!-- lake / water body -->
+            <path d="M120 85 Q140 70 160 80 Q180 75 190 90 Q170 105 145 100 Q130 110 120 85Z" fill="rgba(30,143,255,0.06)"/>
+            <path d="M380 420 Q400 405 420 415 Q440 410 445 430 Q420 440 395 432 Q380 440 380 420Z" fill="rgba(30,143,255,0.06)"/>
+            <!-- major roads -->
+            <path d="M10 250 Q130 260 250 250 Q370 240 490 250" stroke="rgba(255,255,255,0.04)" stroke-width="2.5" fill="none"/>
+            <path d="M250 10 L250 490" stroke="rgba(255,255,255,0.04)" stroke-width="2.5" fill="none"/>
+            <!-- highway I-85 -->
+            <path d="M60 160 Q180 175 250 200 Q320 220 440 240" stroke="rgba(231,162,61,0.08)" stroke-width="2" stroke-dasharray="8,5" fill="none"/>
+            <text x="130" y="188" fill="rgba(231,162,61,0.15)" font-family="var(--font-mono)" font-size="7" letter-spacing="2">I-85</text>
+            <!-- highway I-77 -->
+            <path d="M250 10 L250 490" stroke="rgba(231,162,61,0.08)" stroke-width="2" stroke-dasharray="8,5" fill="none"/>
+            <text x="255" y="280" fill="rgba(231,162,61,0.15)" font-family="var(--font-mono)" font-size="7" letter-spacing="2">I-77</text>
+            <!-- secondary roads -->
+            <path d="M80 100 Q160 130 190 180" stroke="rgba(255,255,255,0.02)" stroke-width="1" fill="none"/>
+            <path d="M300 100 Q340 150 360 220" stroke="rgba(255,255,255,0.02)" stroke-width="1" fill="none"/>
+            <path d="M150 350 Q250 380 380 350" stroke="rgba(255,255,255,0.02)" stroke-width="1" fill="none"/>
+            <path d="M100 300 Q150 280 200 290" stroke="rgba(255,255,255,0.02)" stroke-width="1" fill="none"/>
+            <path d="M350 50 Q380 100 420 150" stroke="rgba(255,255,255,0.02)" stroke-width="1" fill="none"/>
+            <!-- county boundary lines -->
+            <path d="M180 300 Q220 320 250 350 Q280 370 320 380" stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="3,4" fill="none"/>
+            <path d="M320 250 Q340 300 370 340" stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="3,4" fill="none"/>
+            <!-- city markers -->
             ${[
-              ['Charlotte',300,215],
-              ['Huntersville',220,130],['Mooresville',175,95],['Kannapolis',350,105],['Concord',390,135],
-              ['Harrisburg',340,160],['Matthews',370,250],['Mint Hill',395,225],
-              ['Indian Trail',395,290],['Monroe',430,310],['Pineville',260,270],
+              ['Charlotte',250,250],
+              ['Huntersville',185,150],['Mooresville',150,115],['Kannapolis',295,125],['Concord',330,155],
+              ['Harrisburg',285,180],['Matthews',315,285],['Mint Hill',335,260],
+              ['Indian Trail',335,325],['Monroe',370,345],['Pineville',215,305],
             ].map(([name,x,y])=>`
               <g class="map-marker" data-city="${name}" style="cursor:pointer;">
-                <circle cx="${x}" cy="${y}" r="6" fill="#5ec2ff" opacity="0.7" filter="url(#mapDotShadow)"/>
-                <circle cx="${x}" cy="${y}" r="2.5" fill="#fff"/>
-                <rect x="${x-4}" y="${y-36}" width="${name.length*7+12}" height="20" rx="4" fill="rgba(7,11,20,0.88)" stroke="rgba(94,194,255,0.2)" stroke-width="0.5"/>
-                <text x="${x+2}" y="${y-22}" text-anchor="middle" fill="#aab4c4" font-family="var(--font-body)" font-size="10" font-weight="500">${name}</text>
+                <circle cx="${x}" cy="${y}" r="5" fill="#5ec2ff" opacity="0.65" filter="url(#pinShadow)"/>
+                <circle cx="${x}" cy="${y}" r="2" fill="#fff"/>
+                <rect x="${x-4}" y="${y-32}" width="${name.length*7+10}" height="18" rx="3" fill="rgba(7,11,20,0.85)" stroke="rgba(94,194,255,0.15)" stroke-width="0.5"/>
+                <text x="${x+1}" y="${y-19}" text-anchor="middle" fill="#aab4c4" font-family="var(--font-body)" font-size="9.5" font-weight="500">${name}</text>
               </g>
             `).join('')}
-            <!-- county labels -->
-            <text x="130" y="395" fill="rgba(255,255,255,0.08)" font-family="var(--font-mono)" font-size="9" letter-spacing="2.5">MECKLENBURG CO.</text>
-            <text x="410" y="380" fill="rgba(255,255,255,0.08)" font-family="var(--font-mono)" font-size="9" letter-spacing="2.5">CABARRUS CO.</text>
-            <text x="470" y="410" fill="rgba(255,255,255,0.08)" font-family="var(--font-mono)" font-size="9" letter-spacing="2.5">UNION CO.</text>
+            <!-- county region labels -->
+            <text x="95" y="420" fill="rgba(255,255,255,0.06)" font-family="var(--font-mono)" font-size="9" letter-spacing="2.5">MECKLENBURG CO.</text>
+            <text x="270" y="460" fill="rgba(255,255,255,0.06)" font-family="var(--font-mono)" font-size="9" letter-spacing="2.5">UNION CO.</text>
+            <text x="350" y="65" fill="rgba(255,255,255,0.06)" font-family="var(--font-mono)" font-size="9" letter-spacing="2.5">CABARRUS CO.</text>
+            <!-- compass -->
+            <g transform="translate(440,40)">
+              <circle cx="0" cy="0" r="16" fill="rgba(7,11,20,0.7)" stroke="rgba(255,255,255,0.08)" stroke-width="0.5"/>
+              <polygon points="0,-10 -5,5 0,2 5,5" fill="var(--fire2)" opacity="0.6"/>
+              <polygon points="0,10 -5,-5 0,-2 5,-5" fill="rgba(255,255,255,0.15)"/>
+              <text x="0" y="-18" text-anchor="middle" fill="var(--fire2)" font-family="var(--font-mono)" font-size="8" font-weight="700" opacity="0.5">N</text>
+            </g>
+            <!-- scale -->
+            <g transform="translate(20,460)">
+              <line x1="0" y1="0" x2="50" y2="0" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+              <line x1="0" y1="-4" x2="0" y2="4" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+              <line x1="50" y1="-4" x2="50" y2="4" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+              <text x="25" y="14" text-anchor="middle" fill="rgba(255,255,255,0.15)" font-family="var(--font-mono)" font-size="8">10 mi</text>
+            </g>
           </svg>
         </div>
-      </div>
-      <div class="area-tabs" id="areaTabs" style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:24px;">
-        ${AREAS.map(a=>`<button class="area-tab" data-city="${a}" style="background:rgba(255,255,255,0.04);border:1px solid var(--line);border-radius:20px;padding:8px 18px;font-family:var(--font-display);font-size:12px;color:var(--metal-dim);cursor:pointer;letter-spacing:0.04em;transition:all .2s;">${a}</button>`).join('')}
       </div>
     </div>
   </section>
   <style>
-    .area-tab:hover,.area-tab.active{background:rgba(30,143,255,0.12)!important;border-color:var(--water-glow)!important;color:var(--metal)!important;}
-    .map-marker.highlight circle:first-child{fill:#e8a23d!important;opacity:1!important;r:9!important;}
-    .map-marker.highlight rect{stroke:rgba(231,162,61,0.5)!important;background:rgba(7,11,20,0.95)!important;}
+    .area-tab:hover,.area-tab.active{background:rgba(30,143,255,0.1)!important;border-color:var(--water-glow)!important;color:var(--metal)!important;}
+    .area-tab.active span{opacity:1!important;background:#e8a23d!important;}
+    .map-marker.highlight circle:first-child{fill:#e8a23d!important;opacity:1!important;r:8!important;}
+    .map-marker.highlight rect{stroke:rgba(231,162,61,0.5)!important;}
     .map-marker.highlight text{fill:#fff!important;font-weight:700!important;}
+    @media (max-width:980px){.area-map{aspect-ratio:4/5!important;}}
+    @media (max-width:640px){.area-map{aspect-ratio:1/1!important;}}
   </style>
 
   <section class="bg-deep tight">
