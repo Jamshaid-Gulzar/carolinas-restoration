@@ -1865,19 +1865,19 @@ function viewFAQ(){
 // VIEW: PROJECT GALLERY
 // ========================================================================
 const GALLERY = [
-  {cat:'Water Damage', title:'Water Damage Rebuild', city:'Charlotte, NC', desc:'Full kitchen rebuild after a supply-line failure.', before:PHOTO.waterDamage, after:PHOTO.restoredInterior},
-  {cat:'Fire Damage', title:'Fire Damage Rebuild', city:'Gastonia, NC', desc:'Living and dining area reconstruction after a kitchen fire.', before:PHOTO.fireDamage, after:PHOTO.restoredInterior},
-  {cat:'Mold Damage', title:'Mold Remediation Coordination Rebuild', city:'Mint Hill, NC', desc:'Bathroom rebuild after mold-affected drywall removal and clearance.', before:PHOTO.moldCoordination, after:PHOTO.restoredInterior},
-  {cat:'Storm Damage', title:'Storm Damage Repair', city:'Huntersville, NC', desc:'Roof and interior repair after wind and water intrusion.', before:PHOTO.stormDamage, after:PHOTO.restoredInterior},
-  {cat:'Reconstruction', title:'Whole-Room Reconstruction', city:'University City, NC', desc:'Full room reconstruction following multi-trade coordination.', before:PHOTO.waterDamage, after:PHOTO.restoredInterior},
+  {cat:'Water Damage', title:'Sample Project 1', city:'Sample Project', desc:'Example water damage restoration layout.', before:PHOTO.waterDamage, after:PHOTO.restoredInterior},
+  {cat:'Fire Damage', title:'Sample Project 2', city:'Sample Project', desc:'Example fire damage restoration layout.', before:PHOTO.fireDamage, after:PHOTO.restoredInterior},
+  {cat:'Mold Damage', title:'Sample Project 3', city:'Sample Project', desc:'Example mold remediation layout.', before:PHOTO.moldCoordination, after:PHOTO.restoredInterior},
+  {cat:'Storm Damage', title:'Sample Project 4', city:'Sample Project', desc:'Example storm damage repair layout.', before:PHOTO.stormDamage, after:PHOTO.restoredInterior},
+  {cat:'Reconstruction', title:'Sample Project 5', city:'Sample Project', desc:'Example reconstruction project layout.', before:PHOTO.waterDamage, after:PHOTO.restoredInterior},
 ];
 
 function viewGallery(){
   const cats = ['All','Water Damage','Fire Damage','Mold Damage','Storm Damage','Reconstruction'];
   return `
   ${pageHero({
-    eyebrowTxt:'Project Gallery',
-    title:'From Damage to Done.',
+    eyebrowTxt:'Sample Layout Preview',
+    title:'Sample Restoration Gallery Layout',
     sub:'Sample project layouts illustrating our restoration and reconstruction approach across water, fire, mold, and storm damage.',
     photo: PHOTO.restoredInterior, alt:'Sample restoration project layout'
   })}
@@ -1886,7 +1886,7 @@ function viewGallery(){
     <div class="wrap">
       <div class="sample-notice">
         ${svgIcon('shield')}
-        <p>Sample project layout illustrating our before-and-after restoration approach. Real project photos will be added here as completed jobs are documented.</p>
+        <p>These are sample visual placeholders. Real project photos will be added after completed customer projects are approved for use.</p>
       </div>
       <div class="gallery-filters">
         ${cats.map((c,i)=>`<button class="gf-btn ${i===0?'active':''}" data-filter="${c==='All'?'All Projects':c}">${c}</button>`).join('')}
