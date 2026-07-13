@@ -2237,14 +2237,7 @@ function bindInPageInteractions(){
         tab.classList.add('active');
         const city = tab.dataset.city;
         markers.forEach(m=>{
-          const isMatch = m.dataset.city === city;
-          m.classList.toggle('highlight', isMatch);
-          // scroll city into view on mobile
-          if(isMatch && window.innerWidth <= 640){
-            const svg = m.closest('svg');
-            const bbox = m.getBBox();
-            svg.parentElement.scrollTo({left:bbox.x-80,behavior:'smooth'});
-          }
+          m.classList.toggle('highlight', m.dataset.city === city);
         });
       });
     });
