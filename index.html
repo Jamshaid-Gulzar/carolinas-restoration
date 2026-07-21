@@ -1994,8 +1994,7 @@ function viewGallery(){
             <span class="tag" style="position:absolute;">${g.cat}</span>
           </div>
           <div class="gc-body">
-            <span class="gc-cat">${g.city}</span>
-            <h4>${g.title}</h4>
+            <h4>${g.cat} Project</h4>
             <p>${g.desc}</p>
           </div>
         </div>`).join('')}
@@ -2188,6 +2187,7 @@ function render(name){
   updateActiveNav(name);
   closeMobile();
   bindInPageInteractions();
+  if(location.hash !== '#'+name) history.pushState(null, '', '#'+name);
 }
 
 function updateActiveNav(name){
@@ -2333,6 +2333,12 @@ window.addEventListener('resize', function(){
 // initial render — support hash-based deep links (e.g. #contact)
 const hashView = location.hash.replace('#','');
 render(hashView || 'home');
+
+// hashchange — handle back/forward browser navigation
+window.addEventListener('hashchange', ()=>{
+  const v = location.hash.replace('#','');
+  if(v && window.VIEWS[v]) render(v);
+});
 
 </script>
 </body>
