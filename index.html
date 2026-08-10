@@ -346,6 +346,7 @@ section.tight{padding:80px 0;}
 .section-head .eyebrow{justify-content:center;}
 .section-head h2{font-size:clamp(28px,3.4vw,42px);}
 .section-head p{margin-top:16px;font-size:17px;color:var(--metal-dim);}
+.bg-ink2 .section-head p{color:var(--on-dark-dim);}
 .bg-deep{background:var(--deep);}
 .bg-ink2{background:var(--mist);}
 .bg-deep h1,.bg-deep h2,.bg-deep h3,.bg-deep h4{color:#fff;}
@@ -385,6 +386,13 @@ h3.block-title{font-size:26px;margin-bottom:6px;}
 .svc-cell svg{width:26px;height:26px;color:var(--gold);margin-bottom:14px;}
 .svc-cell h4{font-size:22px;margin-bottom:6px;letter-spacing:0.01em;}
 .svc-cell p{font-size:14.5px;color:var(--metal-dim);}
+.svc-cell .svc-link{display:inline-block;margin-top:14px;font-family:var(--font-display);font-size:12.5px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:var(--fire);}
+.svc-cell .svc-link:hover{color:var(--fire2);}
+.clear-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:44px;}
+.clear-card{background:rgba(255,255,255,0.04);border:1px solid var(--line-dark);border-radius:var(--radius);padding:30px 26px;}
+.clear-card svg{width:30px;height:30px;color:var(--gold);margin-bottom:16px;}
+.clear-card h4{font-size:21px;color:#fff;margin-bottom:10px;letter-spacing:0.01em;}
+.clear-card p{font-size:14px;color:var(--on-dark-dim);}
 
 /* process timeline */
 .process-strip{background:var(--deep);padding:80px 0;}
@@ -610,6 +618,8 @@ h3.block-title{font-size:26px;margin-bottom:6px;}
 .disclaimer-box svg{width:22px;height:22px;color:var(--gold);flex-shrink:0;margin-top:1px;}
 .disclaimer-box p{font-size:14px;color:var(--metal-dim);}
 .disclaimer-box b{color:var(--metal);}
+.bg-ink2 .disclaimer-box p{color:var(--on-dark-dim);}
+.bg-ink2 .disclaimer-box b{color:#fff;}
 
 /* compliance box (mold) */
 .compliance-box{
@@ -789,6 +799,7 @@ footer.site-footer{background:var(--ink2);border-top:1px solid var(--line-dark);
   .page-hero-grid{grid-template-columns:1fr;}
   .split,.split.rev{grid-template-columns:1fr;gap:36px;}
   .split.rev .split-img{order:0;}
+  .clear-grid{grid-template-columns:1fr;}
   .icon-row{grid-template-columns:repeat(2,1fr);}
   .svc-grid{grid-template-columns:1fr 1fr;}
   .process-track{grid-template-columns:1fr;gap:24px;}
@@ -957,46 +968,84 @@ footer.site-footer{background:var(--ink2);border-top:1px solid var(--line-dark);
     </div>
   </section>
 
-  <div class="hero-trust-bar">
-    <div class="wrap">
-      <div class="htb-row">
-        <div class="htb-cell c1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><span>Emergency Response<br>Coordination</span></div>
-        <div class="htb-cell c2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2c1 3-2 4-2 7a4 4 0 008 0c0-1-1-2-1-2 1 4-1 5-1 5a6 6 0 11-9-8c1-1 3-1 5-2z"></path></svg><span>Water, Fire, Mold &amp;<br>Storm Damage</span></div>
-        <div class="htb-cell c3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg><span>Contents Pack-Out<br>&amp; Storage</span></div>
-        <div class="htb-cell c4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="8" y1="13" x2="16" y2="13"></line><line x1="8" y1="17" x2="16" y2="17"></line></svg><span>Insurance Documentation<br>Support</span></div>
-        <div class="htb-cell c5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1h-5v-7H9v7H4a1 1 0 01-1-1z"></path></svg><span>Complete<br>Reconstruction</span></div>
-      </div>
-    </div>
-  </div>
-
   <section class="tight">
     <div class="wrap">
-      <div class="icon-row">
-        <div class="icon-card c1" data-nav="water"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2c4 5 7 9 7 13a7 7 0 11-14 0c0-4 3-8 7-13z"></path></svg><span>Water Damage</span></div>
-        <div class="icon-card c2" data-nav="fire"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2c1 3-2 4-2 7a4 4 0 008 0c0-1-1-2-1-2 1 4-1 5-1 5a6 6 0 11-9-8c1-1 3-1 5-2z"></path></svg><span>Fire &amp; Smoke Damage</span></div>
-        <div class="icon-card c3" data-nav="mold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"></circle><circle cx="6" cy="7" r="2"></circle><circle cx="18" cy="7" r="2"></circle><circle cx="5" cy="17" r="2"></circle><circle cx="19" cy="17" r="2"></circle></svg><span>Mold Remediation Coordination</span></div>
-        <div class="icon-card c4" data-nav="reconstruction"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1h-5v-7H9v7H4a1 1 0 01-1-1z"></path></svg><span>Complete Reconstruction</span></div>
+      <div class="svc-grid">
+        <div class="svc-cell">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2c4 5 7 9 7 13a7 7 0 11-14 0c0-4 3-8 7-13z"></path></svg>
+          <h4>Water Damage</h4>
+          <p>Coordinate mitigation, document affected areas, and plan repairs and reconstruction.</p>
+          <a class="svc-link" href="water-damage">Learn About Water Damage</a>
+        </div>
+        <div class="svc-cell">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2c1 3-2 4-2 7a4 4 0 008 0c0-1-1-2-1-2 1 4-1 5-1 5a6 6 0 11-9-8c1-1 3-1 5-2z"></path></svg>
+          <h4>Fire &amp; Smoke Damage</h4>
+          <p>Coordinate qualified cleanup and odor-control work, then rebuild damaged interiors.</p>
+          <a class="svc-link" href="fire-damage">Learn About Fire &amp; Smoke Damage</a>
+        </div>
+        <div class="svc-cell">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"></circle><circle cx="6" cy="7" r="2"></circle><circle cx="18" cy="7" r="2"></circle><circle cx="5" cy="17" r="2"></circle><circle cx="19" cy="17" r="2"></circle></svg>
+          <h4>Mold Coordination</h4>
+          <p>Coordinate qualified assessment and remediation, then restore removed finishes and materials.</p>
+          <a class="svc-link" href="mold-remediation">Learn About Mold Coordination</a>
+        </div>
+        <div class="svc-cell">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 16.58A5 5 0 0018 7h-1.26A8 8 0 104 15.25"></path><polyline points="12 16 10 20 14 20 12 24"></polyline></svg>
+          <h4>Storm Damage</h4>
+          <p>Address wind, rain, water intrusion, exterior damage, and the reconstruction that follows.</p>
+          <a class="svc-link" href="storm-damage">Learn About Storm Damage</a>
+        </div>
+        <div class="svc-cell">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+          <h4>Pack-Out &amp; Storage</h4>
+          <p>Coordinate inventory, packing, transport, cleaning, storage, and return of contents.</p>
+          <a class="svc-link" href="pack-out-storage">Learn About Pack-Out &amp; Storage</a>
+        </div>
+        <div class="svc-cell">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1h-5v-7H9v7H4a1 1 0 01-1-1z"></path></svg>
+          <h4>Complete Reconstruction</h4>
+          <p>Organize the repair plan, qualified trades, finishes, documentation, and final walkthrough.</p>
+          <a class="svc-link" href="reconstruction">Learn About Reconstruction</a>
+        </div>
       </div>
     </div>
   </section>
 
+  <div class="hero-trust-bar">
+    <div class="wrap">
+      <div class="htb-row">
+        <div class="htb-cell c1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg><span>Clear Communication</span></div>
+        <div class="htb-cell c2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="8" y1="13" x2="16" y2="13"></line><line x1="8" y1="17" x2="16" y2="17"></line></svg><span>Detailed Documentation</span></div>
+        <div class="htb-cell c3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg><span>Coordinated Recovery Path</span></div>
+        <div class="htb-cell c4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg><span>Qualified Trade Coordination</span></div>
+        <div class="htb-cell c5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Charlotte Metro</span></div>
+      </div>
+    </div>
+  </div>
+
   <section class="bg-deep">
     <div class="wrap">
-      <div class="split">
-        <div>
-          <div class="eyebrow">Why Choose Us</div>
-          <h2 style="font-size:clamp(28px,3vw,36px);margin-bottom:18px;">When Disaster Happens,<br>You Need a Clear Plan.</h2>
-          <p>Property damage can leave you dealing with emergency cleanup, damaged belongings, insurance questions, unfinished rooms, and multiple contractors. Carolinas Flood &amp; Fire Restoration helps organize the recovery from the first response through final reconstruction.</p>
-          <ul class="feature-list">
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"></polyline></svg> Emergency response coordination</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"></polyline></svg> Water, fire, mold, and storm damage support</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"></polyline></svg> Contents pack-out and storage coordination</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"></polyline></svg> Documentation and reconstruction planning</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"></polyline></svg> One organized point of contact</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"></polyline></svg> Complete repair and rebuild management</li>
-          </ul>
+      <div class="section-head">
+        <div class="eyebrow">A Clear Plan</div>
+        <h2>When Damage Happens,<br>You Need a Clear Plan.</h2>
+        <p>Property damage can quickly become a confusing mix of cleanup, belongings, repair decisions, schedules, and insurance paperwork. Carolinas Flood &amp; Fire Restoration helps organize the construction and recovery path so you know what comes next.</p>
+      </div>
+      <div class="clear-grid">
+        <div class="clear-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+          <h4>Assess &amp; Plan</h4>
+          <p>We review the damaged areas, what work has already been completed, and what is needed to move the property toward repair.</p>
         </div>
-        <div class="split-img photo"><img src="https://i.postimg.cc/3JGGtkqW/Gemini-Generated-Image-9jw63u9jw63u9jw6.png" alt="Project manager consulting with a homeowner in front of their house" loading="lazy"></div>
+        <div class="clear-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+          <h4>Coordinate &amp; Protect</h4>
+          <p>For emergency mitigation, contents care, storage, and specialty work, we coordinate with qualified restoration partners as needed.</p>
+        </div>
+        <div class="clear-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1h-5v-7H9v7H4a1 1 0 01-1-1z"></path></svg>
+          <h4>Repair &amp; Rebuild</h4>
+          <p>We organize the reconstruction path, qualified trades, documentation, material decisions, and final walkthrough.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -1004,9 +1053,9 @@ footer.site-footer{background:var(--ink2);border-top:1px solid var(--line-dark);
   <section>
     <div class="wrap">
       <div class="section-head">
-        <div class="eyebrow">From Disaster to Done</div>
+        <div class="eyebrow">Proof of Work</div>
         <h2>From Disaster to Done.</h2>
-        <p>Cleanup is only the beginning. We help rebuild the rooms, finishes, and living spaces that make your home feel whole again.</p>
+        <p>The goal is not only to remove damage. It is to return the property to a safe, functional, finished home. See how a documented repair plan moves from damaged conditions to completed reconstruction.</p>
       </div>
       <div class="ba-split">
         <div class="ba-divider"></div>
@@ -1016,78 +1065,51 @@ footer.site-footer{background:var(--ink2);border-top:1px solid var(--line-dark);
     </div>
   </section>
 
-  <section class="bg-ink2">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="eyebrow">Pack-Out &amp; Storage</div>
-        <h2>Contents Pack-Out &amp; Storage When Your Belongings Need Protection</h2>
-        <p>When damage affects your home, your belongings may need to be inventoried, packed, moved, cleaned, stored, and returned after reconstruction. We help coordinate that process so homeowners are not left managing it alone.</p>
-      </div>
-      <div class="split" style="gap:32px;">
-        <div>
-          <div class="packout-cards">
-            <div class="po-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h3l2-3h8l2 3h3a2 2 0 012 2z"></path><circle cx="12" cy="13" r="4"></circle></svg><h4>Photo Inventory</h4><p>Every item documented before it leaves the property.</p></div>
-            <div class="po-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="3.5"></circle></svg><h4>Careful Packing</h4><p>Organized, labeled packing for an easy, accurate return.</p></div>
-            <div class="po-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1" y="6" width="14" height="11" rx="1"></rect><path d="M15 9h4l3 3v5h-7z"></path><circle cx="6" cy="19" r="1.6"></circle><circle cx="17.5" cy="19" r="1.6"></circle></svg><h4>Transport Coordination</h4><p>Coordinating safe transport of your belongings.</p></div>
-            <div class="po-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 9l10-6 10 6v11H2z"></path><line x1="2" y1="9" x2="22" y2="9"></line><path d="M9 20v-7h6v7"></path></svg><h4>Secure Storage</h4><p>Coordinating secure storage while repairs are underway.</p></div>
-            <div class="po-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 21V8a3 3 0 016 0v13"></path><line x1="6" y1="21" x2="18" y2="21"></line><line x1="13" y1="3" x2="20" y2="3"></line><line x1="13" y1="6" x2="18" y2="6"></line></svg><h4>Cleaning Coordination</h4><p>Coordinating cleaning of contents when needed.</p></div>
-            <div class="po-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.5 15A9 9 0 1019 6L1 10"></path></svg><h4>Return After Rebuild</h4><p>Belongings returned and placed once reconstruction is complete.</p></div>
-          </div>
-          <div style="text-align:center;margin-top:36px;">
-            <a href="pack-out-storage" class="btn btn-fire">Request a Consultation</a>
-          </div>
-        </div>
-        <div class="split-img photo" style="align-self:center;"><img src="https://i.postimg.cc/Bnfjyf7G/Gemini-Generated-Image-ux1t9aux1t9aux1t.png" alt="Restoration crew wrapping furniture and packing belongings for secure storage" loading="lazy"></div>
-      </div>
-    </div>
-  </section>
-
   <section class="process-strip">
     <div class="wrap">
       <div class="section-head" style="margin-bottom:44px;">
         <div class="eyebrow">One Clear Path</div>
-        <h2>From Call to Completion</h2>
+        <h2>One Organized Path From Damage to Restored.</h2>
       </div>
       <div class="process-track">
     <div class="process-step">
       <div class="step-num">1</div>
-      <h4>Call Us</h4>
-      <p>Reach our team for help.</p>
+      <h4>Contact Us</h4>
+      <p>Call 704-674-8783 or submit the consultation form. Tell us what happened and whether mitigation has started.</p>
     </div>
     <div class="process-step">
       <div class="step-num">2</div>
-      <h4>Assess Damage</h4>
-      <p>We evaluate and document the loss.</p>
+      <h4>Review the Damage</h4>
+      <p>We review the affected areas, available photos and documents, and the current stage of the loss.</p>
     </div>
     <div class="process-step">
       <div class="step-num">3</div>
-      <h4>Stabilize &amp; Protect</h4>
-      <p>Mitigation partners secure the property.</p>
+      <h4>Coordinate the Next Steps</h4>
+      <p>We coordinate qualified restoration partners as needed and define the reconstruction path.</p>
     </div>
     <div class="process-step">
       <div class="step-num">4</div>
-      <h4>Plan the Rebuild</h4>
-      <p>We scope, schedule, and coordinate trades.</p>
+      <h4>Repair and Rebuild</h4>
+      <p>The approved repair plan moves through scheduling, qualified trades, materials, construction, and quality checks.</p>
     </div>
     <div class="process-step">
       <div class="step-num">5</div>
-      <h4>Restore Your Home</h4>
-      <p>Quality craftsmanship through final walkthrough.</p>
+      <h4>Final Walkthrough</h4>
+      <p>We review the completed reconstruction, address documented completion items, and close the project path.</p>
     </div></div>
     </div>
   </section>
 
   <section class="bg-ink2" style="border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
     <div class="wrap">
-      <div class="split" style="grid-template-columns:0.9fr 0.9fr;">
-        <div>
-          <div class="van-feature"><img src="https://i.postimg.cc/pVGCw5kP/Gemini-Generated-Image-qws2pqqws2pqqws2.png" alt="Branded RestoreCarolinas van serving Charlotte and the Carolinas" loading="lazy"></div>
-        </div>
-        <div style="display:flex;flex-direction:column;justify-content:center;">
-          <h2 style="font-size:clamp(20px,2.4vw,28px);color:var(--metal);margin-bottom:10px;">Our Van Is on the Way.</h2>
-          <p>When you see a Carolinas Flood &amp; Fire Restoration van pull up, you know the process is in motion. Our branded vans travel across Charlotte, Harrisburg, Concord, Huntersville, Matthews, Mint Hill, Indian Trail, and the surrounding areas — bringing clear communication, skilled partners, and an organized path from emergency response through final reconstruction.</p>
-          <p style="margin-top:14px;"><a href="tel:7046748783" style="color:var(--water-glow);font-weight:700;">Call 704-674-8783</a> or <a href="contact" style="color:var(--gold);font-weight:700;">Request a Consultation</a></p>
-        </div>
+      <div class="section-head">
+        <div class="eyebrow">Insurance-Related Reconstruction</div>
+        <h2>Working Through an Insurance-Related Loss?</h2>
+        <p>We provide construction-related scopes, photos, measurements, documentation, and repair planning for the work we perform. We communicate about the construction scope while the insurance carrier makes coverage and payment decisions under the homeowner&rsquo;s policy.</p>
+      </div>
+      <div class="disclaimer-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"></path></svg>
+        <p><b>Required disclaimer:</b> Insurance coverage and payment decisions are made by the insurance carrier under the homeowner&rsquo;s policy. We provide construction-related scopes, photos, measurements, documentation, and repair planning for the work we perform.</p>
       </div>
     </div>
   </section>
@@ -1095,8 +1117,8 @@ footer.site-footer{background:var(--ink2);border-top:1px solid var(--line-dark);
   
   <div class="cta-band">
     <div class="wrap">
-      <h2>Need Help Now?</h2>
-      <p>Tell us what happened and we will help you understand the next step toward a fully restored home.</p>
+      <h2>Need Help With Property Damage?</h2>
+      <p>Tell us what happened, what work has already started, and what you need help rebuilding. We will review the situation and explain the next step.</p>
       <div class="btn-group">
         <a href="contact" class="btn btn-fire">Request a Consultation</a>
         <a href="tel:7046748783" class="btn btn-outline">Call 704-674-8783</a>

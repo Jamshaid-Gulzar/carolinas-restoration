@@ -346,6 +346,7 @@ section.tight{padding:80px 0;}
 .section-head .eyebrow{justify-content:center;}
 .section-head h2{font-size:clamp(28px,3.4vw,42px);}
 .section-head p{margin-top:16px;font-size:17px;color:var(--metal-dim);}
+.bg-ink2 .section-head p{color:var(--on-dark-dim);}
 .bg-deep{background:var(--deep);}
 .bg-ink2{background:var(--mist);}
 .bg-deep h1,.bg-deep h2,.bg-deep h3,.bg-deep h4{color:#fff;}
@@ -385,6 +386,13 @@ h3.block-title{font-size:26px;margin-bottom:6px;}
 .svc-cell svg{width:26px;height:26px;color:var(--gold);margin-bottom:14px;}
 .svc-cell h4{font-size:22px;margin-bottom:6px;letter-spacing:0.01em;}
 .svc-cell p{font-size:14.5px;color:var(--metal-dim);}
+.svc-cell .svc-link{display:inline-block;margin-top:14px;font-family:var(--font-display);font-size:12.5px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:var(--fire);}
+.svc-cell .svc-link:hover{color:var(--fire2);}
+.clear-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:44px;}
+.clear-card{background:rgba(255,255,255,0.04);border:1px solid var(--line-dark);border-radius:var(--radius);padding:30px 26px;}
+.clear-card svg{width:30px;height:30px;color:var(--gold);margin-bottom:16px;}
+.clear-card h4{font-size:21px;color:#fff;margin-bottom:10px;letter-spacing:0.01em;}
+.clear-card p{font-size:14px;color:var(--on-dark-dim);}
 
 /* process timeline */
 .process-strip{background:var(--deep);padding:80px 0;}
@@ -610,6 +618,8 @@ h3.block-title{font-size:26px;margin-bottom:6px;}
 .disclaimer-box svg{width:22px;height:22px;color:var(--gold);flex-shrink:0;margin-top:1px;}
 .disclaimer-box p{font-size:14px;color:var(--metal-dim);}
 .disclaimer-box b{color:var(--metal);}
+.bg-ink2 .disclaimer-box p{color:var(--on-dark-dim);}
+.bg-ink2 .disclaimer-box b{color:#fff;}
 
 /* compliance box (mold) */
 .compliance-box{
@@ -789,6 +799,7 @@ footer.site-footer{background:var(--ink2);border-top:1px solid var(--line-dark);
   .page-hero-grid{grid-template-columns:1fr;}
   .split,.split.rev{grid-template-columns:1fr;gap:36px;}
   .split.rev .split-img{order:0;}
+  .clear-grid{grid-template-columns:1fr;}
   .icon-row{grid-template-columns:repeat(2,1fr);}
   .svc-grid{grid-template-columns:1fr 1fr;}
   .process-track{grid-template-columns:1fr;gap:24px;}
