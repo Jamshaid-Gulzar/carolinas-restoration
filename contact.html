@@ -959,9 +959,9 @@ footer.site-footer{background:var(--ink2);border-top:1px solid var(--line-dark);
 <main id="app"><div class="view active">
   <section class="page-hero">
     <div class="page-hero-inner" style="text-align:center;">
-      <div class="eyebrow">Request a Consultation</div>
-      <h1 style="margin-bottom:14px;">Get Help Now</h1>
-      <p class="sub" style="margin:0 auto;">Tell us what happened, and we will help you understand the next step.</p>
+      <div class="eyebrow">Contact Us</div>
+      <h1 style="margin-bottom:14px;">LET'S REBUILD YOUR HOME.</h1>
+      <p class="sub" style="margin:0 auto;">Tell us what happened, what work has already started, and what you need help rebuilding. We will review the information and explain the next step.</p>
     </div>
   </section>
 
@@ -969,57 +969,59 @@ footer.site-footer{background:var(--ink2);border-top:1px solid var(--line-dark);
     <div class="wrap">
       <div class="contact-grid">
         <div class="form-card">
-          <p style="font-size:15px;color:var(--metal);margin-bottom:20px;line-height:1.6;"><strong>Upload photos and tell us what happened.</strong> We'll review the next step and contact you quickly.</p>
-          <form id="leadForm" action="https://formsubmit.co/jamshaidgulzar9@gmail.com" method="POST" enctype="multipart/form-data">
+          <p style="font-size:15px;color:var(--metal);margin-bottom:20px;line-height:1.6;"><strong>Tell us about the damaged property.</strong> We'll review the information and explain the next step.</p>
+          <form id="leadForm" action="https://formsubmit.co/request@restorecarolinas.com" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_cc" value="request@restorecarolinas.com">
+            <input type="hidden" name="_cc" value="jamshaidgulzar9@gmail.com">
             <input type="hidden" name="_template" value="table">
             <input type="hidden" name="_subject" value="New Restoration Lead from Website">
             <input type="hidden" name="_next" value="https://restorecarolinas.com/contact?submitted=thankyou">
             <div class="form-row">
-              <div class="form-group"><label>First Name <span class="req">*</span></label><input type="text" name="first_name" required="" placeholder="First name"></div>
-              <div class="form-group"><label>Last Name <span class="req">*</span></label><input type="text" name="last_name" required="" placeholder="Last name"></div>
+              <div class="form-group"><label>First name <span class="req">*</span></label><input type="text" name="first_name" required="" placeholder="First name"></div>
+              <div class="form-group"><label>Last name <span class="req">*</span></label><input type="text" name="last_name" required="" placeholder="Last name"></div>
             </div>
             <div class="form-row">
-              <div class="form-group"><label>Phone Number <span class="req">*</span></label><input type="tel" name="phone" required="" placeholder="(704) 000-0000"></div>
-              <div class="form-group"><label>Email Address <span class="req">*</span></label><input type="email" name="email" required="" placeholder="you@example.com"></div>
+              <div class="form-group"><label>Phone <span class="req">*</span></label><input type="tel" name="phone" required="" placeholder="(704) 000-0000"></div>
+              <div class="form-group"><label>Email <span class="req">*</span></label><input type="email" name="email" required="" placeholder="you@example.com"></div>
             </div>
             <div class="form-row">
+              <div class="form-group"><label>Damaged-property address <span class="req">*</span></label><input type="text" name="property_address" required="" placeholder="Damaged-property address"></div>
               <div class="form-group"><label>City <span class="req">*</span></label><input type="text" name="city" required="" placeholder="Charlotte"></div>
-              <div class="form-group"><label>Type of Damage <span class="req">*</span></label>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label>Type of damage <span class="req">*</span></label>
                 <select name="damage_type" required="">
                   <option value="">Select type of damage</option>
-                  <option>Water Damage</option><option>Fire Damage</option><option>Mold Damage</option>
-                  <option>Storm Damage</option><option>Multiple / Not Sure</option>
+                  <option>Water</option><option>Fire/Smoke</option><option>Mold-related</option><option>Storm</option><option>Other</option>
                 </select>
+              </div>
+              <div class="form-group"><label>Has emergency mitigation already started?</label>
+                <select name="mitigation_started"><option value="">Select an option</option><option>Yes</option><option>No</option><option>Not sure</option></select>
               </div>
             </div>
             <div class="form-row">
-              <div class="form-group"><label>Has Emergency Mitigation Started?</label>
-                <select name="mitigation_started"><option value="">Select an option</option><option>Yes</option><option>No</option><option>Not Sure</option></select>
-              </div>
-              <div class="form-group"><label>Do You Need Pack-Out / Storage Help?</label>
-                <select name="needs_packout"><option value="">Select an option</option><option>Yes</option><option>No</option><option>Not Sure</option></select>
+              <div class="form-group full"><label>Do you need contents pack-out help?</label>
+                <select name="needs_packout"><option value="">Select an option</option><option>Yes</option><option>No</option><option>Not sure</option></select>
               </div>
             </div>
             <div class="form-row">
               <div class="form-group full">
-                <label>Brief Description of Damage <span class="req">*</span></label>
+                <label>Brief description of the damage <span class="req">*</span></label>
                 <textarea name="description" required="" placeholder="Tell us what happened and what areas are affected..."></textarea>
               </div>
             </div>
             <div class="form-row">
               <div class="form-group full">
-                <label>Upload Photos</label>
+                <label>Photo upload <span style="color:var(--metal-dim);font-weight:400;text-transform:none;">(optional)</span></label>
                 <div class="upload-box" onclick="document.getElementById('photoUpload').click()">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg><span id="uploadLabel">Drag and drop files here or click to browse</span><span style="font-size:11px;">JPG or PNG, up to 8 photos</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg><span id="uploadLabel">Drag and drop files here or click to browse</span><span style="font-size:11px;">JPG, PNG, or PDF · Up to 10 MB per file</span>
                 </div>
-                <input type="file" id="photoUpload" name="photos" accept="image/*" multiple="" style="display:none;" onchange="document.getElementById('uploadLabel').textContent = this.files.length + ' file(s) selected'">
+                <input type="file" id="photoUpload" name="photos" accept=".jpg,.jpeg,.png,.pdf" multiple="" style="display:none;" onchange="document.getElementById('uploadLabel').textContent = this.files.length + ' file(s) selected'">
               </div>
             </div>
             <div class="form-row">
               <div class="form-group full">
-                <label>Preferred Contact Method <span class="req">*</span></label>
+                <label>Preferred contact method</label>
                 <div class="contact-pref">
                   <label class="pref-btn"><input type="radio" name="pref" value="Call" checked=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> Call</label>
                   <label class="pref-btn"><input type="radio" name="pref" value="Text"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path></svg> Text</label>
@@ -1029,23 +1031,23 @@ footer.site-footer{background:var(--ink2);border-top:1px solid var(--line-dark);
             </div>
             <div class="form-row">
               <div class="form-group full">
-                <label>Damaged Property Address <span style="color:var(--metal-dim);font-weight:400;text-transform:none;">(optional)</span></label>
-                <input type="text" name="property_address" placeholder="Optional — only needed once your request is qualified">
+                <label class="consent-check" style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;text-transform:none;font-weight:500;font-size:13px;color:var(--metal-dim);letter-spacing:0;line-height:1.6;">
+                  <input type="checkbox" name="consent" required="" style="width:16px;height:16px;margin-top:2px;flex-shrink:0;accent-color:var(--fire2);">
+                  <span>I agree that Carolinas Flood &amp; Fire Restoration may contact me about this request.</span>
+                </label>
               </div>
             </div>
-            <p style="font-size:12px;color:var(--metal-dim);margin-bottom:18px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0110 0v4"></path></svg> Property address is optional and kept private.</p>
-            <button type="submit" class="btn btn-fire submit-btn">Request a Consultation</button>
+            <button type="submit" class="btn btn-fire submit-btn">Submit Consultation Request</button>
             <div class="privacy-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0110 0v4"></path></svg> Your information is kept private and never shared.</div>
           </form>
         </div>
 
         <div>
           <div class="side-card">
-            <h4>WE'RE HERE TO HELP</h4>
-            <div class="side-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg><div><b><a href="tel:7046748783">704-674-8783</a></b></div></div>
-            <div class="side-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><div><b>Emergency Response Coordination</b><span>for water, fire, mold, and storm damage</span></div></div>
-            <div class="side-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1h-5v-7H9v7H4a1 1 0 01-1-1z"></path></svg><div><b>RestoreCarolinas.com</b></div></div>
-            <div class="side-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 1118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><div><b>Serving Charlotte</b><span>and surrounding Carolina communities</span></div></div>
+            <h4>GET IN TOUCH</h4>
+            <div class="side-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg><div><b>Call 704-674-8783</b></div></div>
+            <div class="side-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 1118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><div><b>Serving Charlotte Metro and surrounding communities.</b></div></div>
+            <div class="side-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1h-5v-7H9v7H4a1 1 0 01-1-1z"></path></svg><div><b>restorecarolinas.com</b></div></div>
           </div>
           <div class="side-card">
             <h4>YOU CAN COUNT ON US</h4>
@@ -1054,21 +1056,6 @@ footer.site-footer{background:var(--ink2);border-top:1px solid var(--line-dark);
             <div class="side-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"></polyline></svg><div><b>Detailed documentation</b></div></div>
             <div class="side-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"></polyline></svg><div><b>Coordinated, quality reconstruction</b></div></div>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="bg-ink2" style="border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
-    <div class="wrap">
-      <div class="split" style="grid-template-columns:0.9fr 0.9fr;">
-        <div>
-          <div class="van-feature"><img src="https://i.postimg.cc/pVGCw5kP/Gemini-Generated-Image-qws2pqqws2pqqws2.png" alt="Branded RestoreCarolinas van serving Charlotte and the Carolinas" loading="lazy"></div>
-        </div>
-        <div style="display:flex;flex-direction:column;justify-content:center;">
-          <h2 style="font-size:clamp(20px,2.4vw,28px);color:var(--metal);margin-bottom:10px;">Our Van Is on the Way.</h2>
-          <p>When you see a Carolinas Flood &amp; Fire Restoration van pull up, you know the process is in motion. Our team serves Charlotte, Harrisburg, Concord, Huntersville, Matthews, Mint Hill, Indian Trail, and the surrounding areas.</p>
-          <p style="margin-top:14px;"><a href="tel:7046748783" style="color:var(--water-glow);font-weight:700;">Call 704-674-8783</a> or <a href="contact" style="color:var(--gold);font-weight:700;">Request a Consultation</a></p>
         </div>
       </div>
     </div>
@@ -1163,7 +1150,7 @@ footer.site-footer{background:var(--ink2);border-top:1px solid var(--line-dark);
   if(location.search.indexOf('submitted=thankyou')>-1){
     history.replaceState(null,'',location.pathname);
     var fc=document.querySelector('.form-card');
-    if(fc){ fc.innerHTML='<div style="text-align:center;padding:60px 0;"><h2>Thank You!</h2><p>Your request has been submitted successfully. Someone will reach out to you shortly.</p><p style="margin-top:14px;">Need immediate help? <a href="tel:7046748783" style="color:var(--water-glow);font-weight:700;">Call 704-674-8783</a></p></div>'; }
+    if(fc){ fc.innerHTML='<div style="text-align:center;padding:60px 0;"><h2>Thank You!</h2><p>Thank you. Your consultation request has been received. A team member will review the information and contact you using your preferred method. For immediate property concerns, call 704-674-8783.</p></div>'; }
   }
   window.addEventListener('resize', function(){ var cm=document.getElementById('callDropdownMenu'); if(cm&&window.innerWidth<=980){ cm.classList.remove('open'); } });
 })();
